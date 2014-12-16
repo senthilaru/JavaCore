@@ -2,7 +2,7 @@ package com.spsa.rnd.datastructure.naive;
 
 public class Stack {
 
-	private Node nextNode = null;
+	private Node headNode = null;
 
 	private class Node {
 		String data;
@@ -12,14 +12,14 @@ public class Stack {
 	public void put(String data) {
 		Node node = new Node();
 		node.data = data;
-		node.adjNode = this.nextNode;
-		this.nextNode = node;
+		node.adjNode = this.headNode;
+		this.headNode = node;
 	}
 
 	public String pop() {
-		String data = nextNode.data;
+		String data = headNode.data;
 //		Node temp = nextNode;
-		this.nextNode = nextNode.adjNode;
+		this.headNode = headNode.adjNode;
 //		temp.adjNode = null;
 		return data;
 	}
