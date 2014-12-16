@@ -1,4 +1,4 @@
-package com.spsa.rnd.datastructure;
+package com.spsa.rnd.datastructure.classic;
 
 public class Stack {
 
@@ -25,12 +25,16 @@ public class Stack {
 	public static void main(String[] args) {
 
 		Stack myStack = new Stack();
-		myStack.put("SP");
-		myStack.put("Senthil");
-		myStack.put("Arumugam");
-
-		System.out.println("myStack.pop():" + myStack.pop());
-		System.out.println("myStack.pop():" + myStack.pop());
-		System.out.println("myStack.pop():" + myStack.pop());
+		for (int i = 0; i < Long.MAX_VALUE; i++) {
+			myStack.put("Arumugam");
+			System.out.println("myStack.pop():" + myStack.pop());
+		}
+//		myStack.put("SP");
+//		myStack.put("Senthil");
+//		myStack.put("Arumugam");
+//
+//		System.out.println("myStack.pop():" + myStack.pop());
+//		System.out.println("myStack.pop():" + myStack.pop());
+//		System.out.println("myStack.pop():" + myStack.pop());
 	}
 }
