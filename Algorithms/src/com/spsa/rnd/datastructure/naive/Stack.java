@@ -18,23 +18,21 @@ public class Stack {
 
 	public String pop() {
 		String data = nextNode.data;
+//		Node temp = nextNode;
 		this.nextNode = nextNode.adjNode;
+//		temp.adjNode = null;
 		return data;
 	}
 
 	public static void main(String[] args) {
 
 		Stack myStack = new Stack();
-		for (int i = 0; i < Long.MAX_VALUE; i++) {
-			myStack.put("Arumugam");
-			System.out.println("myStack.pop():" + myStack.pop());
-		}
-//		myStack.put("SP");
-//		myStack.put("Senthil");
-//		myStack.put("Arumugam");
-//
-//		System.out.println("myStack.pop():" + myStack.pop());
-//		System.out.println("myStack.pop():" + myStack.pop());
-//		System.out.println("myStack.pop():" + myStack.pop());
+		myStack.put("SP");
+		myStack.put("Senthil");
+		myStack.put("Arumugam");
+
+		System.out.println("myStack.pop():" + myStack.pop());
+		System.out.println("myStack.pop():" + myStack.pop());
+		System.out.println("myStack.pop():" + myStack.pop());
 	}
 }
