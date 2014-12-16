@@ -1,23 +1,23 @@
-package com.spsa.rnd.datastructure.advanced;
+package com.spsa.rnd.datastructure.naive;
 
-public class Stack<T> {
+public class Stack {
 
-	private Node<T> nextNode = null;
+	private Node nextNode = null;
 
-	private class Node<T> {
-		T data;
-		Node<T> adjNode;
+	private class Node {
+		String data;
+		Node adjNode;
 	}
 
-	public void put(T data) {
-		Node<T> node = new Node<T>();
+	public void put(String data) {
+		Node node = new Node();
 		node.data = data;
 		node.adjNode = this.nextNode;
 		this.nextNode = node;
 	}
 
-	public T pop() {
-		T data = nextNode.data;
+	public String pop() {
+		String data = nextNode.data;
 		this.nextNode = nextNode.adjNode;
 		return data;
 	}
