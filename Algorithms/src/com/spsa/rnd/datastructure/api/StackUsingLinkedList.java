@@ -1,7 +1,7 @@
 package com.spsa.rnd.datastructure.api;
 
 
-public class BasicStack<T> implements Stack<T>{
+public class StackUsingLinkedList<T> implements Stack<T>{
 
 	private Node<T> nextNode = null;
 
