@@ -1,7 +1,6 @@
 package com.spsa.rnd.datastructure.api;
 
-
-public class StackUsingLinkedList<T> implements Stack<T>{
+public class StackUsingLinkedList<T> implements Stack<T> {
 
 	private Node<T> nextNode = null;
 
@@ -27,18 +26,14 @@ public class StackUsingLinkedList<T> implements Stack<T>{
 
 	public static void main(String[] args) {
 
-		BasicStack myStack = new BasicStack();
-		for (int i = 0; i < Long.MAX_VALUE; i++) {
-			myStack.push("Arumugam");
-			System.out.println("myStack.pop():" + myStack.pop());
-		}
-//		myStack.put("SP");
-//		myStack.put("Senthil");
-//		myStack.put("Arumugam");
-//
-//		System.out.println("myStack.pop():" + myStack.pop());
-//		System.out.println("myStack.pop():" + myStack.pop());
-//		System.out.println("myStack.pop():" + myStack.pop());
+		StackUsingLinkedList<String> myStack = new StackUsingLinkedList<>();
+		myStack.push("SP");
+		myStack.push("Senthil");
+		myStack.push("Arumugam");
+
+		System.out.println("myStack.pop():" + myStack.pop());
+		System.out.println("myStack.pop():" + myStack.pop());
+		System.out.println("myStack.pop():" + myStack.pop());
 	}
 
 }
