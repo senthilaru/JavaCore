@@ -1,4 +1,4 @@
-package com.spsa.rnd.datastructure.api;
+package com.spsa.rnd.datastructure.api.stack;
 
 import java.lang.reflect.Array;
 

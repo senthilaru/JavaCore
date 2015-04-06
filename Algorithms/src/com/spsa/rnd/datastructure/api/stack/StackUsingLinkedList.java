@@ -1,4 +1,4 @@
-package com.spsa.rnd.datastructure.api;
+package com.spsa.rnd.datastructure.api.stack;
 
 public class StackUsingLinkedList<T> implements Stack<T> {
 
