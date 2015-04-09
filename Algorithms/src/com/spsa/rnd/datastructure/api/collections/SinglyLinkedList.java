@@ -50,6 +50,24 @@ public class SinglyLinkedList<E> implements List<E>{
 		
 	}
 	
+	
+	@Override
+	public String toString() {
+		
+		Node<E> current = first;
+		StringBuilder b = new StringBuilder("[");
+		
+		while( current !=null){
+			b.append(current);
+			b.append(",");
+			current = current.next;
+			
+		}
+		b.deleteCharAt(b.length()-1);
+		b.append("]");
+		return b.toString();
+		
+	}
 
 	@Override
 	public E get(int index) {
@@ -80,7 +98,17 @@ public class SinglyLinkedList<E> implements List<E>{
 	public static void main(String[] args) {
 		SinglyLinkedList<String> list = new SinglyLinkedList<String>();
 		list.add("A");
+		list.add("B");
+		list.add("C");
+		list.add("D");
 		
+		System.out.println(list);
+		
+		list.remove("A");
+		list.remove("D");
+
+		System.out.println(list);
+
 	}
 
 }
