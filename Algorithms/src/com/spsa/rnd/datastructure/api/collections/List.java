@@ -1,3 +1,5 @@
+package com.spsa.rnd.datastructure.api.collections;
+
 public interface List<E> {
 
 	public int add(E o);
