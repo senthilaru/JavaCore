@@ -1,112 +1,116 @@
 package com.spsa.rnd.datastructure.api.collections;
 
+public class SinglyLinkedList<E> implements List<E> {
 
-public class SinglyLinkedList<E> implements List<E>{
+	Node<E> firstNode;
+	Node<E> lastNode;
 
-	Node<E> first;
-	Node<E> last;
-	
-	public SinglyLinkedList(){
-		
+	public SinglyLinkedList() {
+
 	}
-	
-	public void add(E e){
-		Node<E> n = new Node<E>(e);
-		if ( first == null){
-			first  = new Node<E>(e);
-		}else{
-			if ( first .next == null){
-				first.next = n;
-			}else{
-				last.next = n;
-			}
+
+	@Override
+	public void add(E data) {
+		Node<E> newNode = new Node<E>(data);
+		if (lastNode == null) {
+			firstNode = newNode;
+			lastNode = newNode;
+		} else {
+			lastNode.next = newNode;
 		}
-		last = n;
+		lastNode = newNode;
 	}
-	
-	
-	public void remove(E e){
-		
-		Node<E> current = first;
+
+	@Override
+	public void remove(E data) {
+
+		Node<E> current = firstNode;
 		Node<E> prev = current;
-		
-		while ( current !=null) {
-			if ( current.e.equals(e)){
+
+		while (current != null) {
+			if (current.data.equals(data)) {
 				Node<E> next = current.next;
-				if ( next == null){
+				if (next == null) {
 					prev.next = null;
 					prev = null;
 					return;
 				}
-				current.next  = next.next;
-				current.e = next.e;
-				next.next  = null;
+				current.next = next.next;
+				current.data = next.data;
+				next.next = null;
 				next = null;
 				return;
 			}
 			prev = current;
 			current = current.next;
 		}
-		
-	}
-	
-	
-	@Override
-	public String toString() {
-		
-		Node<E> current = first;
-		StringBuilder b = new StringBuilder("[");
-		
-		while( current !=null){
-			b.append(current);
-			b.append(",");
-			current = current.next;
-			
-		}
-		b.deleteCharAt(b.length()-1);
-		b.append("]");
-		return b.toString();
-		
+
 	}
 
 	@Override
 	public E get(int index) {
+		//TODO: Need to implement
 		return null;
 	}
 
-
 	@SuppressWarnings("hiding")
-	class Node<E>{
-		Node<E> next ;
-		E e ;
-		
-		Node(E e){
-			this.e = e;
+	private class Node<E> {
+		Node<E> next;
+		E data;
+
+		Node(E data) {
+			this.data = data;
 		}
-		Node(E e,Node<E> next){
-			this.e = e; 
-			this.next = next;
-		}
-		
-		public String toString(){
-			return e.toString();
+
+		@Override
+		public String toString() {
+			return data.toString();
 		}
 	}
-	
-	
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.spsa.rnd.datastructure.api.collections.List#contains(java.lang.Object
+	 * )
+	 */
+	@Override
+	public boolean contains(E data) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String toString() {
+
+		Node<E> current = firstNode;
+		StringBuilder b = new StringBuilder("[");
+
+		while (current != null) {
+			b.append(current);
+			b.append(",");
+			current = current.next;
+
+		}
+		b.deleteCharAt(b.length() - 1);
+		b.append("]");
+		return b.toString();
+
+	}
+
 	public static void main(String[] args) {
 		SinglyLinkedList<String> list = new SinglyLinkedList<String>();
 		list.add("A");
 		list.add("B");
 		list.add("C");
 		list.add("D");
-		
+
 		System.out.println(list);
-		
+
 		list.remove("A");
 		list.remove("D");
-
+		list.add("F");
 		System.out.println(list);
 
 	}
