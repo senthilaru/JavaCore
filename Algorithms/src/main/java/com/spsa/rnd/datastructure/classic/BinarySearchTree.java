@@ -16,53 +16,64 @@ public class BinarySearchTree {
 		Integer data;
 		BSTNode left;
 		BSTNode right;
+		
+		@Override
+		public String toString(){
+			return "["+ left + "-" + data + "-"+ right + "]";
+		}
 	}
 
-	private BSTNode rootNode;
+	private BSTNode rootNode = new BSTNode();
 
 	public void insert(Integer value) {
 		BSTNode currentNode = rootNode;
-		while(currentNode != null){
+		
+		while (currentNode.data != null) {
 			if (value <= currentNode.data) {
 				currentNode = currentNode.left;
 			} else {
 				currentNode = currentNode.right;
 			}
 		}
-		if(currentNode == null){
-			currentNode = new BSTNode();
-		}
 		currentNode.data = value;
-	}
-	
-	public String getPreOrderTraversal(){
-		String result = toPreOrderTraversal(rootNode);
-		System.out.println("result:"+result);
+		currentNode.left = new BSTNode();
+		currentNode.right = new BSTNode();
+		System.out.println("currentNode:"+currentNode);
 	}
 
-	private String toPreOrderTraversal(BSTNode currentNode){
-		String result = "";
-		if(currentNode == null){
-			return;
-		}
-		result = result + currentNode.data + ",";
-		if (currentNode.left != null) {
-			currentNode = currentNode.left;
-		} else {
-			currentNode = currentNode.right;
-		}
-		result = toPreOrderTraversal(currentNode);
+	public String getPreOrderTraversal() {
+		String result = toPreOrderTraversal(rootNode);
+		System.out.println("result:" + result);
 		return result;
 	}
-	
-	public String getPostOrderTraversal(){
-		
+
+	private String toPreOrderTraversal(BSTNode currentNode) {
+		String result = "";
+		if (currentNode == null) {
+			return result;
+		}
+		if (currentNode.left != null) {
+//			System.out.println(currentNode.data);
+			currentNode = currentNode.left;
+		} else {
+//			System.out.println(currentNode.data);
+			currentNode = currentNode.right;
+		}
+		result = String.valueOf(currentNode.data);
+		toPreOrderTraversal(currentNode);
+		return result;
 	}
-	public String getInOrderTraversal(){
-		
+
+	public String getPostOrderTraversal() {
+		return null;
 	}
-	public String getLevelOrderTraversal(){
-		
+
+	public String getInOrderTraversal() {
+		return null;
+	}
+
+	public String getLevelOrderTraversal() {
+		return null;
 	}
 
 	public static void main(String[] args) {
@@ -70,5 +81,7 @@ public class BinarySearchTree {
 		bst.insert(10);
 		bst.insert(9);
 		bst.insert(11);
+		System.out.println("bst.getPreOrderTraversal():" + bst.getPreOrderTraversal());
+
 	}
 }
