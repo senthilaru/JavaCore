@@ -16,35 +16,63 @@ public class BinarySearchTree {
 		Integer data;
 		BSTNode left;
 		BSTNode right;
+		
+		@Override
+		public String toString(){
+			return "["+ left + "-" + data + "-"+ right + "]";
+		}
 	}
 
-	private BSTNode rootNode;
+	private BSTNode rootNode = new BSTNode();
 
 	public void insert(Integer value) {
 		BSTNode currentNode = rootNode;
-		if (currentNode == null) {
-			currentNode = rootNode;
-		} else if (value < currentNode.left.data) {
-			currentNode = currentNode.left;
-		} else {
-			currentNode = currentNode.right;
+		
+		while (currentNode.data != null) {
+			if (value <= currentNode.data) {
+				currentNode = currentNode.left;
+			} else {
+				currentNode = currentNode.right;
+			}
 		}
 		currentNode.data = value;
+		currentNode.left = new BSTNode();
+		currentNode.right = new BSTNode();
+		System.out.println("currentNode:"+currentNode);
 	}
 
-	private final List<String> tree = new ArrayList<>();
+	public String getPreOrderTraversal() {
+		String result = toPreOrderTraversal(rootNode);
+		System.out.println("result:" + result);
+		return result;
+	}
 
-	@Override
-	public String toString() {
-		BSTNode currentNode = rootNode;
+	private String toPreOrderTraversal(BSTNode currentNode) {
+		String result = "";
 		if (currentNode == null) {
-			return "";
+			return result;
 		}
-		tree.add(String.valueOf(currentNode.data));
 		if (currentNode.left != null) {
-			tree.add(String.valueOf(currentNode.left.data));
+//			System.out.println(currentNode.data);
+			currentNode = currentNode.left;
+		} else {
+//			System.out.println(currentNode.data);
+			currentNode = currentNode.right;
 		}
+		result = String.valueOf(currentNode.data);
+		toPreOrderTraversal(currentNode);
+		return result;
+	}
 
+	public String getPostOrderTraversal() {
+		return null;
+	}
+
+	public String getInOrderTraversal() {
+		return null;
+	}
+
+	public String getLevelOrderTraversal() {
 		return null;
 	}
 
@@ -53,5 +81,7 @@ public class BinarySearchTree {
 		bst.insert(10);
 		bst.insert(9);
 		bst.insert(11);
+		System.out.println("bst.getPreOrderTraversal():" + bst.getPreOrderTraversal());
+
 	}
 }
