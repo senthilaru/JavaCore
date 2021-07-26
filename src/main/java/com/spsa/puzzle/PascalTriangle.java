@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.spsa.puzzle.java;
+package com.spsa.puzzle;
 
 import java.util.ArrayList;
 import java.util.List;

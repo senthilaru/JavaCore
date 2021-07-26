@@ -18,8 +18,6 @@ import java.nio.file.StandardOpenOption;
 
 import javax.imageio.ImageIO;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageDecoder;
 
 /**
  * @author sarumu1
@@ -64,8 +62,7 @@ public class EdgeDetector {
 	public BufferedImage readAsBufferedImage(String filename) {
 		try {
 			FileInputStream fis = new FileInputStream(filename);
-			JPEGImageDecoder decoder = JPEGCodec.createJPEGDecoder(fis);
-			BufferedImage bi = decoder.decodeAsBufferedImage();
+			BufferedImage bi = ImageIO.read(fis);
 			return bi;
 		} catch (Exception e) {
 			System.out.println(e);
